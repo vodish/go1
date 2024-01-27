@@ -2,13 +2,16 @@ package main
 
 import "fmt"
 
+const (
+	// one = // укажите здесь формулу с iota
+	one = 2*iota + 1
+	three
+	five
+	seven
+	nine
+	eleven
+)
+
 func main() {
-	// определите переменные ver, id, pi
-	// ver = v0.0.1 id = 0 pi = 3.1415.
-
-	var ver string = "v0.0.1"
-	var id int
-	pi := 3.1415
-
-	fmt.Println("ver =", ver, "id =", id, "pi =", pi)
+	fmt.Println(one, three, five, seven, nine, eleven)
 }
