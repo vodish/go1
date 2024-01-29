@@ -1,17 +1,13 @@
 package main
 
-import "fmt"
-
-const (
-	// one = // укажите здесь формулу с iota
-	one = 2*iota + 1
-	three
-	five
-	seven
-	nine
-	eleven
+import (
+	"fmt"
 )
 
 func main() {
-	fmt.Println(one, three, five, seven, nine, eleven)
+
+	rgba := [...]uint8{255, 255, 128, 1} // [255 255 128 1] len = 4
+
+	fmt.Println(rgba)
+
 }
