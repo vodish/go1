@@ -2,12 +2,17 @@ package main
 
 import (
 	"fmt"
+	"strings"
 )
 
 func main() {
-
-	rgba := [...]uint8{255, 255, 128, 1} // [255 255 128 1] len = 4
-
-	fmt.Println(len(rgba))
+	// bSlice := []byte(" \t\n a lone gopher \n\t\r\n")
+	str := `
+	
+	string  
+	
+	`
+	fmt.Println("[", strings.Trim(str, " \n\r\t"), "]") // a lone gopher
+	// fmt.Printf("%s", bSlice)                  // \t\n a lone gopher \n\t\r\n
 
 }
