@@ -1,25 +1,26 @@
 package main
 
 import (
+	"encoding/json"
 	"fmt"
-	"time"
 )
 
 type Person struct {
-	Name        string
-	Email       string
-	dateOfBirth time.Time
+	Name  string `json:"name"`
+	Email string `json:"email"`
+	// DateOfBirth time.Time
+	List []int `json:"list"`
 }
 
 func main() {
 	p1 := Person{
-		Email: "Два",
-		Name:  "Один",
+		Email: "Aлекс",
+		Name:  "alex@yandex.ru",
+		List:  []int{11},
 	}
-	p2 := Person{"Один", "Два", time.Date(2000, 12, 1, 0, 0, 0, 0, time.UTC)}
 
-	fmt.Println(p1)
-	// fmt.Println(p2)
-	fmt.Printf("Man %#v", p2)
+	json, _ := json.Marshal(p1)
+
+	fmt.Println(string(json))
 
 }
