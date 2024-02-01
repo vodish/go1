@@ -1,26 +1,22 @@
 package main
 
-import (
-	"encoding/json"
-	"fmt"
-)
+import "fmt"
 
-type Person struct {
-	Name  string `json:"name"`
-	Email string `json:"email"`
-	// DateOfBirth time.Time
-	List []int `json:"list"`
+// объявление типа
+type thisName int
+
+// объявление метода
+func (m *thisName) String() string {
+	return fmt.Sprintf("MyType: %d", m)
 }
 
 func main() {
-	p1 := Person{
-		Email: "Aлекс",
-		Name:  "alex@yandex.ru",
-		List:  []int{11},
-	}
 
-	json, _ := json.Marshal(p1)
+	var m thisName = 5
+	m = 10
 
-	fmt.Println(string(json))
-
+	// вызов метода
+	s := m.String()
+	fmt.Println(m)
+	fmt.Println(s)
 }
