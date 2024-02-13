@@ -1,22 +1,18 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"net/http"
+)
 
-// объявление типа
-type thisName int
+func home(w http.ResponseWriter, r *http.Request) {
 
-// объявление метода
-func (m *thisName) String() string {
-	return fmt.Sprintf("MyType: %d", m)
+	fmt.Fprintf(w, "Внешняя функция\nЗапрос: %s", r.URL.Path)
 }
 
 func main() {
 
-	var m thisName = 5
-	m = 10
+	http.HandleFunc("/", home)
 
-	// вызов метода
-	s := m.String()
-	fmt.Println(m)
-	fmt.Println(s)
+	http.ListenAndServe(":7010", nil)
 }
