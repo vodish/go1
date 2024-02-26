@@ -1,26 +1,18 @@
 package main
 
 import (
-	"encoding/json"
 	"fmt"
+	"net/http"
 )
 
-type Person struct {
-	Name  string `json:"name"`
-	Email string `json:"email"`
-	// DateOfBirth time.Time
-	List []int `json:"list"`
+func home(w http.ResponseWriter, r *http.Request) {
+
+	fmt.Fprintf(w, "Внешняя функция\nЗапрос: %s", r.URL.Path)
 }
 
 func main() {
-	p1 := Person{
-		Email: "Aлекс",
-		Name:  "alex@yandex.ru",
-		List:  []int{11},
-	}
 
-	json, _ := json.Marshal(p1)
+	http.HandleFunc("/", home)
 
-	fmt.Println(string(json))
-
+	http.ListenAndServe(":7010", nil)
 }
